@@ -2,7 +2,9 @@ const data = require("./data.json");
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const port = 3000;
+require("dotenv").config();
+
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 
@@ -19,6 +21,6 @@ app.get("/api/location", (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
 });
