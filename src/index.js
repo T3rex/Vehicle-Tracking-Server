@@ -10,11 +10,14 @@ app.use(cors());
 
 app.get("/api/location", (req, res) => {
   const index = parseInt(req.query.index, 10) || 0;
-
-  if (index < data.length) {
-    return res.status(200).json(data[index]);
-  } else {
-    return res.status(204).send();
+  try {
+    if (index < data.length) {
+      return res.status(200).json({ success: true, data: data[index] });
+    } else {
+      return res.status(204).send();
+    }
+  } catch (error) {
+    return res.status(400).json({ success: false });
   }
 });
 
