@@ -4,20 +4,17 @@ const cors = require("cors");
 const app = express();
 require("dotenv").config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
-let index = 0;
-
 app.get("/api/location", (req, res) => {
-  if (index >= 0 && index < data.length) {
-    return res.status(200).json(data[index++]);
+  const index = parseInt(req.query.index, 10) || 0;
+
+  if (index < data.length) {
+    return res.status(200).json(data[index]);
   } else {
-    if (index >= data.length) {
-      index = 0;
-      return res.status(204).send();
-    }
+    return res.status(204).send();
   }
 });
 
