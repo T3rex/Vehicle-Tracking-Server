@@ -57,13 +57,13 @@ Returns the next `[latitude, longitude]` coordinate in a simulated route.
 5. Access the API at:
 
    ```plaintext
-   http://localhost:3000/api/location
+   http://localhost:3000/api/location?index=0
    ```
 
 ## API Details
 
 GET /api/location
-Returns the next GPS coordinate from the route.
+Returns the next GPS coordinate from the route of the queried index.
 
 Response (Success)
 
